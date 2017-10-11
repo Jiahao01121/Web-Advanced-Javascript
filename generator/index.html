@@ -1,0 +1,80 @@
+<head>
+
+  <meta http-equiv="no-cache">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+
+  <!--  solution one-->
+  <!-- <link rel="stylesheet" type="text/css" href="style.css"/> -->
+  <!--  solution two-->
+  <link rel="stylesheet" type="text/css" href="style_second_solution.css"/>
+
+
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="graph-scroll.js"></script>
+  <script src="d3v4+jetpack.js"></script>
+  <script src="index.js"></script>
+</head>
+<body>
+<div class="header_container">
+  <div class = "header-bar">
+    <a href="javascript:window.location.reload();"></a>
+  </div>
+</div>
+
+<div class = 'content-container'>
+  <div id="big-title">
+    <h1>
+      Title
+    </h1>
+    <h3>
+      And the subtitle, text, text and text and text text...
+    </h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+      <br /><br />
+      Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+    </p>
+    <button class="btn_next btn_next-green btn_next-border-o">Explore</button>
+  </div>
+</div>
+
+<div id='container'>
+
+  <div id='graph'>
+    <svg width="800" height="600">
+        <rect  id="text_graph" width="800" height="600" style="fill:rgba(0,0,255,.2);" />
+    </svg>
+  </div>
+
+  <div id='sections'>
+    <div id='sections_first'>
+  		<h3 class="title">This is header section 1</h3>
+      <p>Nothing's happening at this point. Nothing's happening at this point. Nothing's happening at this point.</p>
+    </div>
+    <div>
+  		<h3 class="title">This is header section 2</h3>
+      <p>Should show some graphic at this point? Should show some graphic at this point? Should show some graphic at this point?</p>
+    </div>
+  	<div>
+  		<h3 class="title">This is header section 3</h3>
+      <p>Maybe something happened in here... Maybe something happened in here... Maybe something happened in here...</p>
+    </div>
+  	<div>
+  		<h3 class="title">This is header section 4</h3>
+      <p>Something definitely needs to move. Something definitely needs to move. Something definitely needs to move.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p class="source"></p>
+
+  </footer>
+
+
+</div>
+</body>

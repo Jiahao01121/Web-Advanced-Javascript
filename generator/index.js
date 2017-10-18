@@ -1,15 +1,53 @@
+var $selectItem;
+
 $(document).ready(test);
 
 function test(){
-  var title = ['Will','Bill','phill','jane','jesson','JJ','MM','elen','glue','eme']
-  var poem = ["Emptiness is a blessing: it can’t be owned if it doesn’t exist.My father said to bloom but never fruit— a small trickle eating its way through stone. I am one kind of alive: I see everything the water sees. I told you a turn was going to come & turn the tower did. What are the master’s tools but a way to dismantle him. Who will replace the blood of my mother in me— a cold spring rising. She told me a woman made of water can never crack. Of her defeat, she said this is nothing.","means nostalgia, I’m told, but also nostalgia for what never was. Isn’t itthe same thing? At a caféin Rio flies wreathe my glass.How you would have loved this: the waitersweating his knit shirt dark. Childrenloping, in tiny suits or long shorts, draggingtoys and towels to the beach. We talk,or I talk, and imagine your answer, the heat clouding our view.Here, again, grief fashioned in its cruelest translation: my imagined you is all I have left of you."]
+  $.ajax({
+   url: 'https://api.giphy.com/v1/gifs/trending?api_key=BQebY2BrWuHf2vrt9akgjundEQsvqsa7&limit=25&rating=G',
+   data: {
+      format: 'json'
+   },
+   error: function() {
+      window.alert("error from API");
+   },
+   dataType: 'json',
+   success: function(data) {
+
+     $.ajax({
+      url: 'http://quotes.rest/qod.json',
+      data: {
+         format: 'json'
+      },
+      error: function() {
+         window.alert("error from API");
+      },
+      dataType: 'json',
+      success: function(d) {
+        $("#big-title h3").text("Author: " + d.contents.quotes[0].author)
+        $("#big-title p").text(d.contents.quotes[0].quote)
+      },
+      type: 'GET'
+      });
+
+
+      $selectItem =data.data[ Math.floor(d3.randomUniform(1, data.data.length)()) ]
+      console.log(data);
+
+      $('#text_graph').attr('href',$selectItem.images.original.url)
+
+   },
+   type: 'GET'
+  });
+
+
   $('.btn_next').click(button_clicked_jumpTo_next); //button in the landing page.
   $('#graph').css('top',(window.innerHeight - 640) /2 +40) //get svg always vertical align.
 
 
-    $("#big-title h1").text(title[ Math.floor(Math.random()*10) ])
-    $("#big-title h3").text(title[ Math.floor(Math.random()*10) ])
-    $("#big-title p").text(poem[0])
+    // $("#big-title h1").text(title[ Math.floor(Math.random()*10) ])
+
+    // $("#big-title p").text(poem[0])
 
 }
 
@@ -33,32 +71,146 @@ function button_clicked_jumpTo_next(){
       .on('active', function(i){
         console.log(i); // section num, start from 0.
         if(i == 0){
-          // when scroll to the first section, do something here.
-          d3.select('#text_graph')
-            .transition()
-            .duration(2000)
-            .attr('width',30);
+
+          $.ajax({
+           url: 'https://api.giphy.com/v1/gifs/trending?api_key=BQebY2BrWuHf2vrt9akgjundEQsvqsa7&limit=25&rating=G',data: {format: 'json'},
+           error: function() {window.alert("error from API");},dataType: 'json',
+           success: function(data) {
+
+             $.ajax({
+              url: 'http://quotes.rest/qod.json?category=management',
+              data: {
+                 format: 'json'
+              },
+              error: function() {
+                 window.alert("error from API");
+              },
+              dataType: 'json',
+              success: function(d) {
+                $(".graph-scroll-active h3").text("Author: " + d.contents.quotes[0].author)
+                $(".graph-scroll-active p").text(d.contents.quotes[0].quote)
+              },
+              type: 'GET'
+              });
+
+
+              $selectItem =data.data[ Math.floor(d3.randomUniform(1, data.data.length)()) ]
+              // console.log(data);
+
+              $('#text_graph').attr('href',$selectItem.images.original.url)
+
+           },
+           type: 'GET'
+          });
+
         }
         if(i == 1){
-          // when scroll to the second section, do something here.
-          d3.select('#text_graph')
-            .transition()
-            .duration(2000)
-            .attr('width',300);
+
+
+          $.ajax({
+           url: 'https://api.giphy.com/v1/gifs/trending?api_key=BQebY2BrWuHf2vrt9akgjundEQsvqsa7&limit=25&rating=G',data: {format: 'json'},
+           error: function() {window.alert("error from API");},dataType: 'json',
+           success: function(data) {
+
+             $.ajax({
+              url: 'http://quotes.rest/qod.json?category=sports',
+              data: {
+                 format: 'json'
+              },
+              error: function() {
+                 window.alert("error from API");
+              },
+              dataType: 'json',
+              success: function(d) {
+                $(".graph-scroll-active h3").text("Author: " + d.contents.quotes[0].author)
+                $(".graph-scroll-active p").text(d.contents.quotes[0].quote)
+              },
+              type: 'GET'
+              });
+
+
+              $selectItem =data.data[ Math.floor(d3.randomUniform(1, data.data.length)()) ]
+              // console.log(data);
+
+              $('#text_graph').attr('href',$selectItem.images.original.url)
+
+           },
+           type: 'GET'
+          });
+
+
         };
         if(i == 2){
-          // when scroll to the third section, do something here.
-          d3.select('#text_graph')
-            .transition()
-            .duration(2000)
-            .attr('width',10);
+
+
+          $.ajax({
+           url: 'https://api.giphy.com/v1/gifs/trending?api_key=BQebY2BrWuHf2vrt9akgjundEQsvqsa7&limit=25&rating=G',data: {format: 'json'},
+           error: function() {window.alert("error from API");},dataType: 'json',
+           success: function(data) {
+
+             $.ajax({
+              url: 'http://quotes.rest/qod.json?category=life',
+              data: {
+                 format: 'json'
+              },
+              error: function() {
+                 window.alert("error from API");
+              },
+              dataType: 'json',
+              success: function(d) {
+                $(".graph-scroll-active h3").text("Author: " + d.contents.quotes[0].author)
+                $(".graph-scroll-active p").text(d.contents.quotes[0].quote)
+              },
+              type: 'GET'
+              });
+
+
+              $selectItem =data.data[ Math.floor(d3.randomUniform(1, data.data.length)()) ]
+              // console.log(data);
+
+              $('#text_graph').attr('href',$selectItem.images.original.url)
+
+           },
+           type: 'GET'
+          });
+
+
+
         };
         if(i == 3){
-          // when scroll to the fourth section, do something here.
-          d3.select('#text_graph')
-            .transition()
-            .duration(2000)
-            .attr('fill','rgba(155,211,21,.8)');
+
+          $.ajax({
+           url: 'https://api.giphy.com/v1/gifs/trending?api_key=BQebY2BrWuHf2vrt9akgjundEQsvqsa7&limit=25&rating=G',data: {format: 'json'},
+           error: function() {window.alert("error from API");},dataType: 'json',
+           success: function(data) {
+
+             $.ajax({
+              url: 'http://quotes.rest/qod.json?category=funny',
+              data: {
+                 format: 'json'
+              },
+              error: function() {
+                 window.alert("error from API");
+              },
+              dataType: 'json',
+              success: function(d) {
+                $(".graph-scroll-active h3").text("Author: " + d.contents.quotes[0].author)
+                $(".graph-scroll-active p").text(d.contents.quotes[0].quote)
+              },
+              type: 'GET'
+              });
+
+
+              $selectItem =data.data[ Math.floor(d3.randomUniform(1, data.data.length)()) ]
+              // console.log(data);
+
+              $('#text_graph').attr('href',$selectItem.images.original.url)
+
+           },
+           type: 'GET'
+          });
+
+
         };
       });
 }

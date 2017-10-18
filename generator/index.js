@@ -15,7 +15,7 @@ function test(){
    success: function(data) {
 
      $.ajax({
-      url: 'http://quotes.rest/qod.json',
+      url: 'https://quotes.rest/qod.json',
       data: {
          format: 'json'
       },
@@ -78,7 +78,7 @@ function button_clicked_jumpTo_next(){
            success: function(data) {
 
              $.ajax({
-              url: 'http://quotes.rest/qod.json?category=management',
+              url: 'https://quotes.rest/qod.json?category=management',
               data: {
                  format: 'json'
               },
@@ -113,7 +113,7 @@ function button_clicked_jumpTo_next(){
            success: function(data) {
 
              $.ajax({
-              url: 'http://quotes.rest/qod.json?category=sports',
+              url: 'https://quotes.rest/qod.json?category=sports',
               data: {
                  format: 'json'
               },
@@ -149,7 +149,7 @@ function button_clicked_jumpTo_next(){
            success: function(data) {
 
              $.ajax({
-              url: 'http://quotes.rest/qod.json?category=life',
+              url: 'https://quotes.rest/qod.json?category=life',
               data: {
                  format: 'json'
               },
@@ -185,7 +185,7 @@ function button_clicked_jumpTo_next(){
            success: function(data) {
 
              $.ajax({
-              url: 'http://quotes.rest/qod.json?category=funny',
+              url: 'https://quotes.rest/qod.json?category=funny',
               data: {
                  format: 'json'
               },

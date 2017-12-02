@@ -5,7 +5,7 @@
 #### Under Development
 ---
 ## Online Demo:
-APP: 34.215.110.129
+APP: [34.215.110.129](http://34.215.110.129)
 
 ## Library & Tech & Language used:
  - AngularJS
@@ -36,7 +36,6 @@ APP: 34.215.110.129
   Nav bar (under development):
 
   will add three features:
-
     1. editor:
 
       online code editor that have syntax highlighting functionality to allow user write any programming language.

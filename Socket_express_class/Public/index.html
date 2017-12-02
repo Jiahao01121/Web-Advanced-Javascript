@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+		</head>
+		<body>
+			hello world
+			<script>
+				var socket = io();
+				socket.emit('newMsg',"aa");
+				socket.on('stuff',function(d){
+					console.log(d);
+				})
+				socket.on('count',function(d){
+					console.log(d);
+				})
+				socket.on('bc',function(d){
+					console.log(d)
+				})
+			</script>
+		</body>
+
+	
+	</html>

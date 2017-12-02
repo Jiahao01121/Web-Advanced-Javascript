@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <style>
+      body {
+        margin: 0px;
+        border: 0px;
+        padding: 0px;
+      }
+
+      #map {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <!-- leaflet -->
+    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+    <!-- Main tangram library -->
+    <script src="https://mapzen.com/tangram/0.10/tangram.min.js"></script>
+    <!-- demo setup -->
+    <script>
+      var map = L.map('map').setView([40.70531887544228, -74.00976419448853], 15);
+
+      var layer = Tangram.leafletLayer({
+        scene: "scene.yaml"
+      });
+
+      layer.addTo(map);
+
+      // map.setView()
+
+    </script>
+  </body>
+</html>

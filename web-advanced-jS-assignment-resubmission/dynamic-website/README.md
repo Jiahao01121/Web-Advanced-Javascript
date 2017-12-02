@@ -21,6 +21,34 @@ APP: 34.215.110.129
 ## Project description
  - Build small app that allow user to submit code and give a feedback rank/score that based on code quality (eg: rating base on time complexity & space complexity). similar to [LeetCode](https://leetcode.com/).
 
+ - problem set :
+
+  a list of problem that post by user and stored in the database so that other users can access it.
+
+  process:
+
+  adding problem => submit => go back.
+
+  Routing:
+
+  after adding problem, routing automatically assign the id num for URL endpoint, allow user to access specific problem using deep linking.
+
+  Nav bar (under development):
+
+  will add three features:
+
+    1. editor:
+
+      online code editor that have syntax highlighting functionality to allow user write any programming language.
+
+    2. collection
+
+      collection that allow user to store their favorite problem to their own list. Plan to store this data with log-in Info(for now).
+
+    3. search
+      search that allows user to search problem base on problem name.
+
+
 
 ## Highlight:
 - Dynamic:

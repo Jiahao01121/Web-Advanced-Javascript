@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const problemService = require("../services/problemService")
+const problemService = require("../services/problemService_aftermongo")
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
@@ -13,13 +13,14 @@ router.get('/problems',function(req, res){
 })
 
 //get problem
-router.get('/problems/:id',(req, res) => {
+router.get('/problem/:id',(req, res) => {
   const id = req.params.id;
   problemService.getProblem(+id)
     .then( problem => res.json(problem))
 })
 //post problem
 router.post('/problems',jsonParser, (req, res) => {
+  console.log("stuff adding to data base")
   problemService.addProblem(req.body)
     .then(problem => {
       res.json(problem);

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Problem } from '../../models/problem.model'
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Subscription } from 'rxjs/Subscription'
+
 import { ProblemDataService }  from '../../services/problem-data.service';
 
 @Component({
@@ -23,11 +25,10 @@ export class ProblemDetailComponent implements OnInit {
 
   getCorrespondentData (){
 
-    this.route.params.subscribe(p =>{
-
+    this.route.params.subscribe(p => {
       this.problemDataS.detailPageData(+p.id)
-      .subscribe(d => this.problemItem = d)
-
+        // .then(_p => this.problemItem = _p)
+        .subscribe(_p => this.problemItem = _p)
     })
   }
 

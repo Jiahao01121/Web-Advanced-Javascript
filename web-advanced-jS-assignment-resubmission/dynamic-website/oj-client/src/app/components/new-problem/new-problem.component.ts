@@ -18,10 +18,14 @@ const DEFAULT_PROBLEM: Problem = Object.freeze({
 })
 
 export class NewProblemComponent implements OnInit {
-  newProblem: Problem = Object.assign({},DEFAULT_PROBLEM)
+  constructor (
+    private problemDataS: ProblemDataService,
+    private location: Location
+  ) { }
+  newProblem: Problem = Object.assign({},DEFAULT_PROBLEM);
   addProblem(): void{
 
-    this.newProblem.id = this.problemDataS.getData().length + 1;
+    // this.newProblem.id = this.problemDataS.getData().length + 1;
     this.newProblem.difficulty = "easy";
     this.problemDataS.addData(this.newProblem)
     this.newProblem = Object.assign({},DEFAULT_PROBLEM)
@@ -30,10 +34,6 @@ export class NewProblemComponent implements OnInit {
     this.location.back();
 
   }
-  constructor (
-    private problemDataS: ProblemDataService,
-    private location: Location
-  ) { }
 
   ngOnInit() {
   }

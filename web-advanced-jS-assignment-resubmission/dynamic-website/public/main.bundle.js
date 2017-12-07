@@ -81,13 +81,15 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_problem_list_problem_list_component__ = __webpack_require__("../../../../../src/app/components/problem-list/problem-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_problem_data_service__ = __webpack_require__("../../../../../src/app/services/problem-data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes_app_routing_module__ = __webpack_require__("../../../../../src/app/routes/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_problem_detail_problem_detail_component__ = __webpack_require__("../../../../../src/app/components/problem-detail/problem-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_new_problem_new_problem_component__ = __webpack_require__("../../../../../src/app/components/new-problem/new-problem.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_navbar_navbar_component__ = __webpack_require__("../../../../../src/app/components/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_problem_list_problem_list_component__ = __webpack_require__("../../../../../src/app/components/problem-list/problem-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_problem_data_service__ = __webpack_require__("../../../../../src/app/services/problem-data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__routes_app_routing_module__ = __webpack_require__("../../../../../src/app/routes/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_problem_detail_problem_detail_component__ = __webpack_require__("../../../../../src/app/components/problem-detail/problem-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_new_problem_new_problem_component__ = __webpack_require__("../../../../../src/app/components/new-problem/new-problem.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_navbar_navbar_component__ = __webpack_require__("../../../../../src/app/components/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_editor_editor_component__ = __webpack_require__("../../../../../src/app/components/editor/editor.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -104,30 +106,105 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__components_problem_list_problem_list_component__["a" /* ProblemListComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__components_problem_detail_problem_detail_component__["a" /* ProblemDetailComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__components_new_problem_new_problem_component__["a" /* NewProblemComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__components_navbar_navbar_component__["a" /* NavbarComponent */]
+                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__components_problem_list_problem_list_component__["a" /* ProblemListComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__components_problem_detail_problem_detail_component__["a" /* ProblemDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__components_new_problem_new_problem_component__["a" /* NewProblemComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__components_navbar_navbar_component__["a" /* NavbarComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__components_editor_editor_component__["a" /* EditorComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_6__routes_app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
+                __WEBPACK_IMPORTED_MODULE_7__routes_app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_5__services_problem_data_service__["a" /* ProblemDataService */]
+                __WEBPACK_IMPORTED_MODULE_6__services_problem_data_service__["a" /* ProblemDataService */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/editor/editor.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@media screen {\n #editor {\n   height: 600px;\n }\n .lang-select {\n   width: 100px;\n   margin-right: 10px;\n }\n header .btn {\n   margin: 0 5px;\n }\n footer .btn {\n   margin: 0 5px;\n }\n .editor-footer, .editor-header {\n   margin: 10px 0;\n }\n .cursor {\n   /*position:absolute;*/\n   background: rgba(0, 250, 0, 0.5);\n   z-index: 40;\n   width: 2px !important;\n }\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/editor/editor.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section>\n  <header class=\"editor-header\">\n    <select class=\"form-control pull-left lang-select\"\n     [(ngModel)]=\"selectedLanguage\" (change)=\"setLanguage(language)\">\n     <option *ngFor=\"let language of languages\" [value]=\"language\">\n       {{language}}\n     </option>\n    </select>\n    <!-- reset button -->\n    <!-- Button trigger modal -->\n    <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#myModal\">\n      Reset\n    </button>\n\n    <!-- Modal -->\n    <div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n      <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n          <div class=\"modal-header\">\n            <h5 class=\"modal-title\" id=\"exampleModalLabel\">Are you sure</h5>\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n              <span aria-hidden=\"true\">&times;</span>\n            </button>\n          </div>\n          <div class=\"modal-body\">\n            You will lose current code in the editor, are you sure?\n          </div>\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cancel</button>\n            <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\"\n            (click)=\"resetEditor()\">Reset</button>\n          </div>\n        </div>\n      </div>\n    </div>\n  </header>\n  <div class=\"row\">\n    <div id=\"editor\">\n    </div>\n  </div><!-- This is the body -->\n  <footer class=\"editor-footer\">\n      <button type=\"button\" class=\"btn btn-success pull-right\" (click)=\"submit()\">Submit Solution</button>\n  </footer>\n</section>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/editor/editor.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditorComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var EditorComponent = (function () {
+    function EditorComponent() {
+        this.languages = ["Java", "Python"];
+        this.selectedLanguage = "Python";
+        this.defaultContent = {
+            'Java': "function foo(items) {\n      var x = \"All this is syntax highlighted\";\n      return x;\n    }",
+            'Python': "function foo(items) {\n      return x;\n    }"
+        };
+    }
+    EditorComponent.prototype.ngOnInit = function () {
+        this.editor = ace.edit("editor");
+        this.editor.setTheme("ace/theme/eclipse");
+        this.editor.getSession().setMode("ace/mode/java");
+        this.editor.setValue(this.defaultContent["Java"]);
+    };
+    EditorComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-editor',
+            template: __webpack_require__("../../../../../src/app/components/editor/editor.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/editor/editor.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], EditorComponent);
+    return EditorComponent;
 }());
 
 
@@ -253,7 +330,7 @@ var NewProblemComponent = (function () {
         this.newProblem = Object.assign({}, DEFAULT_PROBLEM);
     }
     NewProblemComponent.prototype.addProblem = function () {
-        this.newProblem.id = this.problemDataS.getData().length + 1;
+        // this.newProblem.id = this.problemDataS.getData().length + 1;
         this.newProblem.difficulty = "easy";
         this.problemDataS.addData(this.newProblem);
         this.newProblem = Object.assign({}, DEFAULT_PROBLEM);
@@ -300,7 +377,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/problem-detail/problem-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <p>{{problemItem.id}}</p>\n  <p>{{problemItem.desc}}</p>\n  <p>{{problemItem.difficulty}}</p>\n\n  <button (click)=\"goBack()\">back</button>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"col-sm-12 col-md-4\">\n    <p>{{problemItem.id}}</p>\n    <p>{{problemItem.name}}</p>\n    <p>{{problemItem.desc}}</p>\n    <p>{{problemItem.difficulty}}</p>\n  </div>\n\n  <div class=\"hidden-xs col-sm-12 col-md-8\">\n    <app-editor></app-editor>\n  </div>\n\n</div>\n<div class=\"container\">\n  <div class=\"col-sm-12 col-md-4\">\n    <button (click)=\"goBack()\">back</button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -339,7 +416,7 @@ var ProblemDetailComponent = (function () {
         var _this = this;
         this.route.params.subscribe(function (p) {
             _this.problemDataS.detailPageData(+p.id)
-                .subscribe(function (d) { return _this.problemItem = d; });
+                .subscribe(function (_p) { return _this.problemItem = _p; });
         });
     };
     ProblemDetailComponent.prototype.goBack = function () {
@@ -412,8 +489,14 @@ var ProblemListComponent = (function () {
     ProblemListComponent.prototype.ngOnInit = function () {
         this.getProblems();
     };
+    ProblemListComponent.prototype.ngOnDestroy = function () {
+        this.subscriptionProblems.unsubscribe();
+    };
     ProblemListComponent.prototype.getProblems = function () {
-        this.problems = this.problemDataService.getData();
+        var _this = this;
+        // this.problems = this.problemDataService.getData();
+        this.subscriptionProblems = this.problemDataService.getData()
+            .subscribe(function (problems) { _this.problems = problems; });
     };
     ProblemListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -426,47 +509,6 @@ var ProblemListComponent = (function () {
     return ProblemListComponent;
 }());
 
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/models/mockdata.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PROBLEMS; });
-var PROBLEMS = [
-    {
-        id: 1,
-        name: "will",
-        desc: "a",
-        difficulty: "easy"
-    },
-    {
-        id: 2,
-        name: "su",
-        desc: "a",
-        difficulty: "hard"
-    },
-    {
-        id: 3,
-        name: "is",
-        desc: "a",
-        difficulty: "super"
-    },
-    {
-        id: 4,
-        name: "very",
-        desc: "a",
-        difficulty: "medium"
-    },
-    {
-        id: 5,
-        name: "awesome",
-        desc: "a",
-        difficulty: "easy"
-    },
-];
 
 
 /***/ }),
@@ -533,8 +575,10 @@ var AppRoutingModule = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProblemDataService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_mockdata__ = __webpack_require__("../../../../../src/app/models/mockdata.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__ = __webpack_require__("../../../../rxjs/_esm5/observable/of.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/_esm5/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -547,26 +591,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ProblemDataService = (function () {
-    function ProblemDataService() {
+    function ProblemDataService(httpClient) {
+        this.httpClient = httpClient;
+        this._problemSource = new __WEBPACK_IMPORTED_MODULE_2_rxjs_BehaviorSubject__["a" /* BehaviorSubject */]([]);
     }
     ProblemDataService.prototype.getData = function () {
-        return __WEBPACK_IMPORTED_MODULE_1__models_mockdata__["a" /* PROBLEMS */];
+        var _this = this;
+        // no need to use observable, can directly subscribe from subject
+        // getData(): Observable<Problem[]> {
+        this.httpClient.get('api/v1/problems')
+            .toPromise()
+            .then(function (res) { return _this._problemSource.next(res); });
+        // .catch(this.handleError);
+        return this._problemSource;
+        // no need to use observable, can directly subscribe from subject
+        // .asObservable();
     };
-    ;
     ProblemDataService.prototype.detailPageData = function (num) {
-        return Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_observable_of__["a" /* of */])(__WEBPACK_IMPORTED_MODULE_1__models_mockdata__["a" /* PROBLEMS */].find(function (d) { return d.id == num; }));
+        return this.httpClient.get("api/v1/problem/" + num);
+        // .toPromise()
+        // .then((res: any) => res)
     };
     ProblemDataService.prototype.addData = function (data) {
-        __WEBPACK_IMPORTED_MODULE_1__models_mockdata__["a" /* PROBLEMS */].push(data);
+        var options = { headers: new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]({ 'Content-Type': 'application/json' }) };
+        // return
+        // no need to return stuff.
+        this.httpClient.post('api/v1/problems', data, options)
+            .toPromise();
+        // .then((res: any) => {
+        //   // this.getData();
+        //   // return res;
+        //   //no need to return value.
+        // })
+        // .catch(this.handleError)
+    };
+    ProblemDataService.prototype.handleError = function (error) {
+        return Promise.reject(error.body || error);
     };
     ProblemDataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], ProblemDataService);
     return ProblemDataService;
 }());
 
+;
 
 
 /***/ }),

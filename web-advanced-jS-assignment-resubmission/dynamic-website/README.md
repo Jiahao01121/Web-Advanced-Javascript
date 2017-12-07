@@ -5,7 +5,7 @@
 #### Under Development
 ---
 ## Online Demo:
-APP: [34.215.110.129](http://34.215.110.129)
+APP: [34.215.110.129](http://34.215.110.129:3000/)
 
 ## Library & Tech & Language used:
  - AngularJS

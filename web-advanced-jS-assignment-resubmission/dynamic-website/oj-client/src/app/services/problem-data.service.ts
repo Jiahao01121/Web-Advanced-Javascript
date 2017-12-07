@@ -1,26 +1,57 @@
 import { Injectable } from '@angular/core';
-import { Problem } from '../models/problem.model';
-import { PROBLEMS } from '../models/mockdata';
-
 import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+// import { of } from 'rxjs/observable/of';
+import { Problem } from '../models/problem.model'
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import 'rxjs/add/operator/toPromise';
+
 
 @Injectable()
 export class ProblemDataService {
 
-  getData(): Problem[]{
-    return PROBLEMS;
-  };
+  private _problemSource = new BehaviorSubject<Problem[]> ([]);
 
-  detailPageData(num: number): Observable<Problem> {
-      return of(
-        PROBLEMS.find(d =>{return  d.id == num})
-      )
+  constructor(private httpClient: HttpClient){}
+
+
+  getData(): BehaviorSubject<Problem[]> {
+  // no need to use observable, can directly subscribe from subject
+  // getData(): Observable<Problem[]> {
+    this.httpClient.get('api/v1/problems')
+      .toPromise()
+      .then((res: any) => this._problemSource.next(res) )
+      // .catch(this.handleError);
+    return this._problemSource
+    // no need to use observable, can directly subscribe from subject
+    // .asObservable();
   }
 
-  addData(data: Problem):void {
-    PROBLEMS.push(data);
-  }
-  constructor() { }
 
-}
+  detailPageData(num: number): Observable<any> {
+      return this.httpClient.get(`api/v1/problem/${num}`)
+        // .toPromise()
+        // .then((res: any) => res)
+  }
+
+
+  addData(data: Problem) {
+    const options = {headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
+    // return
+    // no need to return stuff.
+    this.httpClient.post('api/v1/problems',data,options)
+      .toPromise()
+      // .then((res: any) => {
+      //   // this.getData();
+      //   // return res;
+      //   //no need to return value.
+      // })
+      // .catch(this.handleError)
+  }
+
+
+  private handleError(error: any): Promise<any>{
+    return Promise.reject(error.body || error)
+  }
+
+};

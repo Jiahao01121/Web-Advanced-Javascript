@@ -1,7 +1,18 @@
 <div class="container">
-  <p>{{problemItem.id}}</p>
-  <p>{{problemItem.desc}}</p>
-  <p>{{problemItem.difficulty}}</p>
+  <div class="col-sm-12 col-md-4">
+    <p>{{problemItem.id}}</p>
+    <p>{{problemItem.name}}</p>
+    <p>{{problemItem.desc}}</p>
+    <p>{{problemItem.difficulty}}</p>
+  </div>
 
-  <button (click)="goBack()">back</button>
+  <div class="hidden-xs col-sm-12 col-md-8">
+    <app-editor></app-editor>
+  </div>
+
+</div>
+<div class="container">
+  <div class="col-sm-12 col-md-4">
+    <button (click)="goBack()">back</button>
+  </div>
 </div>
